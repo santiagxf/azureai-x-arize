@@ -1,0 +1,9 @@
+langchain-core
+arize-phoenix[evals]
+azure-ai-inference
+azure-identity
+pandas
+numpy
+ipykernel
+jupyter
+python-dotenv
