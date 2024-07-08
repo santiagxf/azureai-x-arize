@@ -1,0 +1,43 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "hubName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Azure AI hub"
+            }
+        },
+        "projectName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Azure AI project"
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.MachineLearningServices/workspaces",
+            "apiVersion": "2021-03-01",
+            "name": "[parameters('hubName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "description": "Azure AI hub",
+                "friendlyName": "[parameters('hubName')]"
+            }
+        },
+        {
+            "type": "Microsoft.MachineLearningServices/workspaces/projects",
+            "apiVersion": "2021-03-01",
+            "name": "[concat(parameters('hubName'), '/', parameters('projectName'))]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "description": "Azure AI project",
+                "friendlyName": "[parameters('projectName')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.MachineLearningServices/workspaces', parameters('hubName'))]"
+            ]
+        }
+    ]
+}
