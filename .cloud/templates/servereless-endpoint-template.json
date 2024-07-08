@@ -39,7 +39,7 @@
             "name": "[concat(parameters('projectName'), '/', parameters('endpointName'))]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[resourceId('Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions', variables('subscriptionName'))]"
+                "[resourceId('Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions/', variables('subscriptionName'))]"
             ],
             "sku": {
                 "name": "Consumption"
@@ -49,6 +49,30 @@
                     "modelId": "[parameters('modelId')]"
                 }
             }
+        },
+        {
+            "type": "Microsoft.MachineLearningServices/workspaces/connections",
+            "apiVersion": "2024-04-01",
+            "name": "[concat(parameters('workspaces_intelligent_apps_name'), '/llama-3-70b-instruct-qgxvd')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/', concat(parameters('projectName'), '/', parameters('endpointName')))]"
+            ],
+            "properties": {
+                "authType": "ApiKey",
+                "category": "Serverless",
+                "target": "[outputs('endpointUri')]",
+                "isSharedToAll": true,
+                "sharedUserList": [],
+                "metadata": {
+                    "ApiType": "Azure"
+                }
+            }
         }
-    ]
+    ],
+    "outputs": {
+        "endpointUri": {
+            "type": "string",
+            "value": "[reference(resourceId('Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/', concat(parameters('projectName'), '/', parameters('endpointName')))).inferenceEndpoint.uri]"
+        }
+    }
 }
