@@ -8,7 +8,7 @@
         },
         "hubName": {
             "type": "string",
-            "defaultValue": "santiagxf-azurei-x-arize-dev"
+            "defaultValue": "hub-azurei-x-arize-dev"
         },
         "projectName": {
             "type": "string",
@@ -36,7 +36,7 @@
             "type": "Microsoft.Resources/deployments",
             "name": "projectHub",
             "resourceGroup": "[variables('resourceGroupName')]",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2024-03-01",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -54,17 +54,20 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "name": "[concat('deployment-', copyIndex())]",
+            "name": "[concat('deployment-models-', copyIndex())]",
             "resourceGroup": "[variables('resourceGroupName')]",
-            "apiVersion": "2020-04-01-preview",
+            "apiVersion": "2024-03-01",
             "copy": {
                 "name": "deploymentLoop",
                 "count": "[length(parameters('modelIds'))]"
             },
+            "dependsOn": [
+                "projectHub"
+            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/santiagxf/azureai-x-arize/main/.cloud/templates/serverless-endpoint-template.json"
+                    "uri": "https://raw.githubusercontent.com/santiagxf/azureai-x-arize/main/.cloud/templates/servereless-endpoint-template.json"
                 },
                 "parameters": {
                     "projectName": {
