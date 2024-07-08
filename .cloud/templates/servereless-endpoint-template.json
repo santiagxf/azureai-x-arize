@@ -72,7 +72,7 @@
     "outputs": {
         "endpointUri": {
             "type": "string",
-            "value": "[reference(resourceId('Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/', concat(parameters('projectName'), '/', parameters('endpointName')))).inferenceEndpoint.uri]"
+            "value": "[reference(resourceId('Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/', parameters('projectName'), parameters('endpointName'))).inferenceEndpoint.uri]"
         }
     }
 }
