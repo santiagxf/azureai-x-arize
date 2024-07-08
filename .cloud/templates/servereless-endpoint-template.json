@@ -20,13 +20,15 @@
         }
     },
     "variables": {
-        "modelName": "[substring(parameters('modelId'), add(lastIndexOf(parameters('modelId'), '/'),1))]"
+        "modelName": "[substring(parameters('modelId'), add(lastIndexOf(parameters('modelId'), '/'),1))]",
+        "subscriptionName": "[concat(parameters('projectName'), '/', variables('modelName'), '-subscription')]"
     },
     "resources": [
         {
             "type": "Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions",
             "apiVersion": "2024-04-01-preview",
-            "name": "[concat(parameters('projectName'), '/', variables('modelName'), '-subscription')]",
+            "name": "[variables('subscriptionName')]",
+            "condition": "[not(startsWith(parameters('modelId'), 'azureml://registries/azureml/'))]",
             "properties": {
                 "modelId": "[parameters('modelId')]"
             }
@@ -36,6 +38,9 @@
             "apiVersion": "2024-04-01-preview",
             "name": "[concat(parameters('projectName'), '/', parameters('endpointName'))]",
             "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions', variables('subscriptionName'))]"
+            ],
             "sku": {
                 "name": "Consumption"
             },

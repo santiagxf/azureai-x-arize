@@ -157,6 +157,12 @@
                 },
                 "hbiWorkspace": "false"
             },
+            "dependsOn": [
+                "[variables('storageAccount')]",
+                "[variables('keyVault')]",
+                "[variables('applicationInsights')]",
+                "[variables('containerRegistry')]"
+            ],
             "tags": "[parameters('tagValues')]"
         },
         {

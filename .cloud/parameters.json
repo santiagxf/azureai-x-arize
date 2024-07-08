@@ -6,13 +6,10 @@
             "value": "eastus2"
         },
         "hubName": {
-            "value": "santiagxf-azurei-x-arize-dev"
+            "value": "hub-azurei-x-arize-dev"
         },
         "projectName": {
             "value": "intelligent-apps"
-        },
-        "resourceGroupName": {
-            "value": "santiagxf-azurei-x-arize-dev"
         },
         "models": {
             "value": [
