@@ -3,32 +3,37 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "projectName": {
+            "defaultValue": "intelligent-apps",
             "type": "String"
         },
         "endpointName": {
+            "defaultValue": "myserverless-text-1234ss",
             "type": "String"
         },
         "location": {
-            "type": "String"
+            "type": "String",
+            "defaultValue": "[resourceGroup().location]"
         },
         "modelId": {
-            "type": "String"
+            "type": "String",
+            "defaultValue": "azureml://registries/azureml-mistral/models/Mistral-large"
         }
     },
-    "variables": {},
+    "variables": {
+        "modelName": "[substring(parameters('modelId'), add(lastIndexOf(parameters('modelId'), '/'),1))]"
+    },
     "resources": [
         {
             "type": "Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions",
-            "apiVersion": "2024-04-01",
-            "name": "[concat(parameters('projectName'), '/', parameters('endpointName'))]",
-            "location": "[parameters('location')]",
+            "apiVersion": "2024-04-01-preview",
+            "name": "[concat(parameters('projectName'), '/', variables('modelName'), '-subscription')]",
             "properties": {
                 "modelId": "[parameters('modelId')]"
             }
         },
         {
             "type": "Microsoft.MachineLearningServices/workspaces/serverlessEndpoints",
-            "apiVersion": "2024-04-01",
+            "apiVersion": "2024-04-01-preview",
             "name": "[concat(parameters('projectName'), '/', parameters('endpointName'))]",
             "location": "[parameters('location')]",
             "sku": {

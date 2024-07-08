@@ -4,11 +4,7 @@
     "parameters": {
         "location": {
             "type": "string",
-            "defaultValue": "eastus2"
-        },
-        "resourceGroupName": {
-            "type": "string",
-            "defaultValue": "santiagxf-azurei-x-arize-dev"
+            "defaultValue": "[resourceGroup().location]"
         },
         "hubName": {
             "type": "string",
@@ -32,12 +28,14 @@
             }
         }
     },
-    "variables": {},
+    "variables": {
+        "resourceGroupName": "[resourceGroup().name]"
+    },
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
             "name": "projectHub",
-            "resourceGroup": "[parameters('resourceGroupName')]",
+            "resourceGroup": "[variables('resourceGroupName')]",
             "apiVersion": "2020-06-01",
             "properties": {
                 "mode": "Incremental",
@@ -45,12 +43,6 @@
                     "uri": "https://raw.githubusercontent.com/santiagxf/azureai-x-arize/main/.cloud/templates/project-hub-template.json"
                 },
                 "parameters": {
-                    "location": {
-                        "value": "[parameters('location')]"
-                    },
-                    "resourceGroupName": {
-                        "value": "[parameters('resourceGroupName')]"
-                    },
                     "hubName": {
                         "value": "[parameters('hubName')]"
                     },
@@ -63,8 +55,8 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "[concat('deployment-', copyIndex())]",
-            "resourceGroup": "[parameters('resourceGroupName')]",
-            "apiVersion": "2020-06-01",
+            "resourceGroup": "[variables('resourceGroupName')]",
+            "apiVersion": "2020-04-01-preview",
             "copy": {
                 "name": "deploymentLoop",
                 "count": "[length(parameters('modelIds'))]"
