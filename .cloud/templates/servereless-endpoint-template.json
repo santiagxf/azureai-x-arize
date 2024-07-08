@@ -49,24 +49,6 @@
                     "modelId": "[parameters('modelId')]"
                 }
             }
-        },
-        {
-            "type": "Microsoft.MachineLearningServices/workspaces/connections",
-            "apiVersion": "2024-04-01",
-            "name": "[concat(parameters('projectName'), '/', parameters('endpointName'))]",
-            "dependsOn": [
-                "[resourceId('Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/', parameters('projectName'), parameters('endpointName'))]"
-            ],
-            "properties": {
-                "authType": "ApiKey",
-                "category": "Serverless",
-                "target": "[outputs('endpointUri')]",
-                "isSharedToAll": true,
-                "sharedUserList": [],
-                "metadata": {
-                    "ApiType": "Azure"
-                }
-            }
         }
     ],
     "outputs": {
