@@ -85,5 +85,11 @@
                 }
             }
         }
-    ]
+    ],
+    "outputs": {
+        "endpoints": {
+            "type": "string",
+            "value": "[reference('deployment-models-0').outputs.endpointUri.value]"
+        }
+    }
 }

@@ -8,3 +8,7 @@ ipykernel
 jupyter
 python-dotenv
 llama_index
+llama-index-llms-azure-inference
+spacy
+git+https://github.com/santiagxf/llama_index.git@santiagxf/azure-ai-inference#subdirectory=llama-index-integrations/llms/llama-index-llms-azure-inference
+git+https://github.com/santiagxf/llama_index.git@santiagxf/azure-ai-inference#subdirectory=llama-index-integrations/embeddings/llama-index-embeddings-azure-inference
