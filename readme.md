@@ -38,3 +38,11 @@ export AZURE_AI_PHI3_MINI_ENDPOINT_KEY="my_awesome_key"
 export AZURE_AI_COHERE_EMBED_ENDPOINT_URL="https://my_awesome_endpoint-serverless.eastus2.inference.ai.azure.com"
 export AZURE_AI_COHERE_EMBED_ENDPOINT_KEY="my_awesome_key" 
 ```
+
+## Run
+
+Use `.devcontainer` to spin off a GitHub codespace to run the examples.
+
+This repository has the following examples:
+
+* [llama_index_selector.ipynb](llama_index_selector.ipynb): It explains how multiple LLMs can be use for data generation, evaluation, and for specific tasks like tool selection.
