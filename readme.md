@@ -8,9 +8,10 @@ We are using infrastructure as code to deploy the required models. The following
 
 * Cohere Embed V3 - Multilingual
 * Cohere Command R+
-* OpenAI GPT-4
 * Mistral-Large
+* Mistral-Small
 * Phi-3-Mini 128K
+* OpenAI GPT-4
 
 Notice that serverless API endpoints are currently supported on `eastus2` and `swidencentral`.
 
