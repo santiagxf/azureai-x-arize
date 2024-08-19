@@ -1,6 +1,9 @@
 import os
 import chainlit as cl
 from chainlit.input_widget import Select, Slider
+from azure.ai.inference import ChatCompletionsClient
+from azure.ai.inference.models import SystemMessage, UserMessage
+from azure.core.credentials import AzureKeyCredential
 
 from llama_index.core import (
     Settings,
@@ -63,13 +66,13 @@ async def start():
         ]).send()
 
     Settings.llm = AzureAICompletionsModel(
-        endpoint=os.getenv("AZURE_AI_COHERE_CMDR_ENDPOINT_URL"),
-        credential=os.getenv("AZURE_AI_COHERE_CMDR_ENDPOINT_KEY"),
+        endpoint=endpoint,
+        credential=AzureKeyCredential(token)),
         temperature=0.1, max_tokens=1024, streaming=True
     )
     Settings.embed_model = AzureAIEmbeddingsModel(
-        endpoint=os.getenv("AZURE_AI_COHERE_EMBED_ENDPOINT_URL"),
-        credential=os.getenv("AZURE_AI_COHERE_EMBED_ENDPOINT_KEY"),
+        endpoint=endpoint,
+        credential=AzureKeyCredential(token)),
     )
     Settings.callback_manager = CallbackManager([cl.LlamaIndexCallbackHandler()])
     Settings.context_window = 4096
@@ -178,8 +181,8 @@ async def setup_agent(settings):
     if settings.get("router_llm", None):
         router_llm_environ = settings["router_llm"]
         router_llm = AzureAICompletionsModel(
-            endpoint=os.getenv(f"AZURE_AI_{router_llm_environ}_ENDPOINT_URL"),
-            credential=os.getenv(f"AZURE_AI_{router_llm_environ}_ENDPOINT_KEY"),
+            endpoint=endpoint,
+            credential=AzureKeyCredential(token)),
             temperature=0.1, max_tokens=1024, streaming=True
         )
         query_engine = build_query_engine_with_router(router_llm)
