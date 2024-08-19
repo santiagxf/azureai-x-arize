@@ -68,6 +68,7 @@ async def start():
         temperature=0.1, max_tokens=1024, streaming=True,
         model_name=os.getenv("AZURE_AI_COHERE_CMDR_MODEL_NAME")
     )
+    Settings.llm._model_name = os.getenv("AZURE_AI_COHERE_CMDR_MODEL_NAME")
     Settings.embed_model = AzureAIEmbeddingsModel(
         endpoint=os.getenv("AZURE_AI_COHERE_EMBED_ENDPOINT_URL"),
         credential=os.getenv("AZURE_AI_COHERE_EMBED_ENDPOINT_KEY"),
@@ -185,6 +186,7 @@ async def setup_agent(settings):
             temperature=0.1, max_tokens=1024, streaming=True,
             model_name=os.getenv(f"AZURE_AI_{router_llm_environ}_MODEL_NAME")
         )
+        router_llm._model_name = os.getenv(f"AZURE_AI_{router_llm_environ}_MODEL_NAME")
         query_engine = build_query_engine_with_router(router_llm)
         cl.user_session.set("query_engine", query_engine)
 
