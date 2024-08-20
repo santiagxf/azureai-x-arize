@@ -1,6 +1,6 @@
 # Azure AI studio x Phoenix
 
-In this repository, you will learn how you can use models deployed in Azure AI studio to use the best model for the right job and consume the greates innovation.
+In this repository, you will learn how you can use models deployed in Azure AI studio to use the best model for the right job and consume the greatest innovation.
 
 ## Deploy
 
@@ -30,16 +30,24 @@ Once deployment is done, create an `.env` file with the endpoints URLs and keys 
 __.env__
 
 ```bash
-export AZURE_AI_COHERE_CMDR_ENDPOINT_URL="https://my_awesome_endpoint-serverless.eastus2.inference.ai.azure.com"
-export AZURE_AI_COHERE_CMDR_ENDPOINT_KEY="my_awesome_key"
-export AZURE_AI_MISTRAL_ENDPOINT_URL="https://my_awesome_endpoint-serverless.eastus2.inference.ai.azure.com"
-export AZURE_AI_MISTRAL_ENDPOINT_KEY="my_awesome_key" 
-export AZURE_AI_MISTRAL_SMALL_ENDPOINT_URL="https://my_awesome_endpoint-serverless.eastus2.inference.ai.azure.com"
-export AZURE_AI_MISTRAL_SMALL_ENDPOINT_KEY="my_awesome_key" 
-export AZURE_AI_PHI3_MINI_ENDPOINT_URL="https://my_awesome_endpoint-serverless.eastus2.inference.ai.azure.com"
-export AZURE_AI_PHI3_MINI_ENDPOINT_KEY="my_awesome_key" 
-export AZURE_AI_COHERE_EMBED_ENDPOINT_URL="https://my_awesome_endpoint-serverless.eastus2.inference.ai.azure.com"
-export AZURE_AI_COHERE_EMBED_ENDPOINT_KEY="my_awesome_key" 
+export AZURE_AI_COHERE_CMDR_ENDPOINT_URL="https://models.inference.ai.azure.com"
+export AZURE_AI_COHERE_CMDR_ENDPOINT_KEY="awesome_key_or_token"
+export AZURE_AI_COHERE_CMDR_MODEL_NAME="cohere-command-r-plus"
+export AZURE_AI_MISTRAL_ENDPOINT_URL="https://models.inference.ai.azure.com"
+export AZURE_AI_MISTRAL_ENDPOINT_KEY="awesome_key_or_token"
+export AZURE_AI_MISTRAL_MODEL_NAME="Mistral-large"
+export AZURE_AI_MISTRAL_SMALL_ENDPOINT_URL="https://models.inference.ai.azure.com"
+export AZURE_AI_MISTRAL_SMALL_ENDPOINT_KEY="awesome_key_or_token"
+export AZURE_AI_MISTRAL_SMALL_MODEL_NAME="Mistral-small"
+export AZURE_AI_PHI3_MINI_ENDPOINT_URL="https://models.inference.ai.azure.com"
+export AZURE_AI_PHI3_MINI_ENDPOINT_KEY="awesome_key_or_token"
+export AZURE_AI_PHI3_MINI_MODEL_NAME="Phi-3-mini-128k-instruct"
+export AZURE_AI_COHERE_EMBED_ENDPOINT_URL="https://models.inference.ai.azure.com"
+export AZURE_AI_COHERE_EMBED_ENDPOINT_KEY="awesome_key_or_token"
+export AZURE_AI_COHERE_EMBED_MODEL_NAME="cohere-embed-v3-multilingual"
+export AZURE_OPENAI_GPT_4_ENDPOINT_URL="https://models.inference.ai.azure.com"
+export AZURE_OPENAI_GPT_4_ENDPOINT_KEY="awesome_key_or_token"
+export AZURE_OPENAI_GPT_4_MODEL_NAME="gpt-4"
 ```
 
 ## Run
