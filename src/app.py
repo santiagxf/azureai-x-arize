@@ -9,7 +9,7 @@ from llama_index.core import (
     SummaryIndex,
     SimpleDirectoryReader,
     load_index_from_storage,
-    get_response_synthesizer
+    get_response_synthesizer,
 )
 from llama_index.core.query_engine import RouterQueryEngine
 from llama_index.core.selectors import LLMSingleSelector
@@ -27,11 +27,21 @@ try:
     # load index
     vector_index = load_index_from_storage(storage_context, index_id="vector_index")
     summary_index = load_index_from_storage(storage_context, index_id="summary_index")
-except:
+except (FileNotFoundError, KeyError, Exception):
     vector_index = None
     summary_index = None
     pass
 
+github_inference_url = "https://models.inference.ai.azure.com"
+github_token = os.getenv("GITHUB_TOKEN", "")
+github_models_names = {
+    "COHERE_CMDR": "cohere-command-r-plus",
+    "COHERE_EMBED": "cohere-embed-v3-multilingual",
+    "PHI3_MINI": "Phi-3-mini-128k-instruct",
+    "MISTRAL": "Mistral-large",
+    "MISTRAL_SMALL": "Mistral-small",
+    "GPT_4": "gpt-4",
+}
 
 @cl.on_chat_start
 async def start():
@@ -60,26 +70,47 @@ async def start():
                     "Phi-3 Mini 128K": "PHI3_MINI",
                 },
             ),
-        ]).send()
-
-    Settings.llm = AzureAICompletionsModel(
-        endpoint=os.getenv("AZURE_AI_COHERE_CMDR_ENDPOINT_URL"),
-        credential=os.getenv("AZURE_AI_COHERE_CMDR_ENDPOINT_KEY"),
-        temperature=0.1, max_tokens=1024, streaming=True,
-        model_name=os.getenv("AZURE_AI_COHERE_CMDR_MODEL_NAME")
-    )
-    Settings.llm._model_name = os.getenv("AZURE_AI_COHERE_CMDR_MODEL_NAME")
-    Settings.embed_model = AzureAIEmbeddingsModel(
-        endpoint=os.getenv("AZURE_AI_COHERE_EMBED_ENDPOINT_URL"),
-        credential=os.getenv("AZURE_AI_COHERE_EMBED_ENDPOINT_KEY"),
-        model_name=os.getenv("AZURE_AI_COHERE_EMBED_MODEL_NAME")
-    )
-    Settings.callback_manager = CallbackManager([cl.LlamaIndexCallbackHandler()])
-    Settings.context_window = 4096
+        ]
+    ).send()
+    # Read environment variables from GitHub Codespaces
+    if os.getenv("CODESPACES", "") == "true":
+        Settings.llm = AzureAICompletionsModel(
+            endpoint=github_inference_url,
+            credential=github_token,
+            temperature=0.1,
+            max_tokens=1024,
+            streaming=True,
+            model_name=github_models_names.get("COHERE_CMDR", "cohere-command-r-plus"),
+        )
+        # Temporary fix for the model name issue: https://github.com/run-llama/llama_index/issues/15169#issuecomment-2299571873
+        Settings.llm._model_name = github_models_names.get("COHERE_CMDR", "cohere-command-r-plus")
+        Settings.embed_model = AzureAIEmbeddingsModel(
+            endpoint=github_inference_url,
+            credential=github_token,
+            model_name=github_models_names.get("COHERE_EMBED", "cohere-embed-v3-multilingual"),
+        )
+        Settings.callback_manager = CallbackManager([cl.LlamaIndexCallbackHandler()])
+        Settings.context_window = 4096
+    else:
+        Settings.llm = AzureAICompletionsModel(
+            endpoint=os.getenv("AZURE_AI_COHERE_CMDR_ENDPOINT_URL"),
+            credential=os.getenv("AZURE_AI_COHERE_CMDR_ENDPOINT_KEY"),
+            temperature=0.1,
+            max_tokens=1024,
+            streaming=True,
+        )
+        Settings.embed_model = AzureAIEmbeddingsModel(
+            endpoint=os.getenv("AZURE_AI_COHERE_EMBED_ENDPOINT_URL"),
+            credential=os.getenv("AZURE_AI_COHERE_EMBED_ENDPOINT_KEY"),
+        )
+        Settings.callback_manager = CallbackManager([cl.LlamaIndexCallbackHandler()])
+        Settings.context_window = 4096
 
     if not vector_index:
-        documents = SimpleDirectoryReader("../data/paul_graham/").load_data(show_progress=True)
-        
+        documents = SimpleDirectoryReader("../data/paul_graham/").load_data(
+            show_progress=True
+        )
+
         vector_index = VectorStoreIndex.from_documents(documents)
         vector_index.set_index_id("vector_index")
         vector_index.storage_context.persist()
@@ -92,20 +123,21 @@ async def start():
     cl.user_session.set("settings", cl_settings)
 
     await cl.Message(
-        author="Assistant", content="Hello! I'm an AI assistant. I will try to answer questions about the life of Paul Graham. For specific questions I will use a vector index, but for more comprehensive questions I will use a summary index. I use a LLM to analyze you queston and decide which strategy I should use based on the complexity of the query. Use the settings section to change the model I use to decide."
+        author="Assistant",
+        content="Hello! I'm an AI assistant. I will try to answer questions about the life of Paul Graham. For specific questions I will use a vector index, but for more comprehensive questions I will use a summary index. I use a LLM to analyze you queston and decide which strategy I should use based on the complexity of the query. Use the settings section to change the model I use to decide.",
     ).send()
+
 
 def build_simple_query_engine():
     global vector_index
 
     retriever = VectorIndexRetriever(
-        index=vector_index, 
+        index=vector_index,
         similarity_top_k=2,
     )
 
     response_synthesizer = get_response_synthesizer(
-        response_mode=ResponseMode.COMPACT,
-        streaming = True
+        response_mode=ResponseMode.COMPACT, streaming=True
     )
 
     query_engine = RetrieverQueryEngine(
@@ -124,8 +156,7 @@ def build_summary_query_engine():
     )
 
     response_synthesizer = get_response_synthesizer(
-        response_mode=ResponseMode.TREE_SUMMARIZE,
-        streaming = True
+        response_mode=ResponseMode.TREE_SUMMARIZE, streaming=True
     )
 
     query_engine = RetrieverQueryEngine(
@@ -134,6 +165,7 @@ def build_summary_query_engine():
     )
 
     return query_engine
+
 
 def build_query_engine_with_router(router_llm=None):
     summary_tool = QueryEngineTool.from_defaults(
@@ -162,9 +194,10 @@ def build_query_engine_with_router(router_llm=None):
 
     return query_engine
 
+
 @cl.on_message
 async def main(message: cl.Message):
-    query_engine = cl.user_session.get("query_engine") # type: RetrieverQueryEngine
+    query_engine = cl.user_session.get("query_engine")  # type: RetrieverQueryEngine
 
     msg = cl.Message(content="", author="Assistant")
 
@@ -174,22 +207,36 @@ async def main(message: cl.Message):
         await msg.stream_token(token)
     await msg.send()
 
+
 @cl.on_settings_update
 async def setup_agent(settings):
     cl.user_session.set("settings", settings)
 
     if settings.get("router_llm", None):
         router_llm_environ = settings["router_llm"]
-        router_llm = AzureAICompletionsModel(
-            endpoint=os.getenv(f"AZURE_AI_{router_llm_environ}_ENDPOINT_URL"),
-            credential=os.getenv(f"AZURE_AI_{router_llm_environ}_ENDPOINT_KEY"),
-            temperature=0.1, max_tokens=1024, streaming=True,
-            model_name=os.getenv(f"AZURE_AI_{router_llm_environ}_MODEL_NAME")
-        )
-        router_llm._model_name = os.getenv(f"AZURE_AI_{router_llm_environ}_MODEL_NAME")
+        if os.getenv("CODESPACES", "") == "true":
+            router_llm = AzureAICompletionsModel(
+                endpoint=github_inference_url,
+                credential=github_token,
+                temperature=0.1,
+                max_tokens=1024,
+                streaming=True,
+                model_name=github_models_names.get(router_llm_environ, ""),
+            )
+            router_llm._model_name = github_models_names.get(router_llm_environ, "")
+        else:
+            router_llm = AzureAICompletionsModel(
+                endpoint=os.getenv(f"AZURE_AI_{router_llm_environ}_ENDPOINT_URL"),
+                credential=os.getenv(f"AZURE_AI_{router_llm_environ}_ENDPOINT_KEY"),
+                temperature=0.1,
+                max_tokens=1024,
+                streaming=True,
+            )
+
         query_engine = build_query_engine_with_router(router_llm)
         cl.user_session.set("query_engine", query_engine)
 
         await cl.Message(
-            author="Assistant", content=f"We are now using {router_llm_environ} for routing queries.", disable_feedback=True
+            author="Assistant",
+            content=f"We are now using {router_llm_environ} for routing queries.",
         ).send()
