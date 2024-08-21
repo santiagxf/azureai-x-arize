@@ -82,11 +82,19 @@ This repository has the following examples:
 LLM stands for Large Language Model. These are AI models trained on extensive text data to understand and generate human-like text.
 
 ### The LLM Used for Generation
-This refers to the specific LLM that was used to generate the text or response you’re seeing. In this case, it’s the cohere-command-r-plus model.
-### Router LLM: A Router LLM is used to determine which specific LLM should handle a given request. It routes the request to the most appropriate model based on the input.
+This refers to the specific LLM that was used to generate the text or response you’re seeing. In this case, Simply select the model you wish to use to use and quickly and easily compare the output based on the model.
 
-For example select, MISTRAL_SMALL as the router, means MINSTRAL_SMALL will decides how to handle the request and directs it to the model for generation.
+### Router LLM:
+A Router LLM is used to determine which specific LLM should handle a given request. It routes the request to the most appropriate model based on the input.
 
+**Selecting the Models**
+Choose the setting button on the chat window and simply select the required models.
+
+**For example:** 
+- Select, Mistral-small as the router, means Mistral-Small will decides how to handle the request and directs it to the model for generation.
+- Select, Phi-3-medium-128k-instruct  as the LLM Generation, means Phi-3-medium-128k-instruct will decide how to format the out to the chat window.
+
+### Running the Demo
 To run chainlit demo app, run the following command:
 
 ```bash
