@@ -1,6 +1,6 @@
 # GitHub Model Catalog and Choosing the right LLM Model
 
-In this repository, you will learn how you can use models deployed in GitHub Model Catalog to use the best model for the right job and consume the greatest innovation.
+In this repository, you will learn how you can use models deployed in [GitHub MarketPlaces Model](https://github.com/marketplace/models) to use the best model for the right job and consume the greatest innovation.
 
 ## Deploy
 
@@ -13,9 +13,6 @@ We are using Github Models as Service to deploy the required models. The environ
 * Phi-3-Mini 128K
 * OpenAI GPT-4
 
-Notice that serverless API endpoints are currently supported on `eastus2` and `swidencentral`.
-
-## Running the demo
 
 ## Environment setup
 
@@ -52,7 +49,18 @@ This repository has the following examples:
 * [src/app.py](src/app.py): A chainlit project that allows you to play with index we built in the previous example. Use the notebook to learn about the technique and the approach. You can use this playground for testing the idea.
 
 ## Running the Web App Demo 
-To use chainlit, run the following command:
+
+## LLM Model Evaluation and routing
+
+LLM stands for Large Language Model. These are AI models trained on extensive text data to understand and generate human-like text.
+
+### The LLM Used for Generation
+This refers to the specific LLM that was used to generate the text or response you’re seeing. In this case, it’s the cohere-command-r-plus model.
+### Router LLM: A Router LLM is used to determine which specific LLM should handle a given request. It routes the request to the most appropriate model based on the input.
+
+For example select, MISTRAL_SMALL as the router, means MINSTRAL_SMALL will decides how to handle the request and directs it to the model for generation.
+
+To run chainlit demo app, run the following command:
 
 ```bash
 source .env
