@@ -35,26 +35,12 @@ except (FileNotFoundError, KeyError, Exception):
 github_inference_url = "https://models.inference.ai.azure.com"
 github_token = os.getenv("GITHUB_TOKEN", "")
 github_models_names = {
-    "AI21 Labs": "AI21-Jamba-Instruct"
-    "Cohere_CMD": "Cohere-command-r", 
-    "Cohere_CMD+":"Cohere-command-r-plus"
-    "Meta-Llama-3-70B-Instruct": "Meta-Llama-3-70B-Instruct", 
-    "Meta-Llama-3-8B-Instruct": "Meta-Llama-3-8B-Instruct", 
-    "Meta-Llama-3.1-405B-Instruct": "Meta-Llama-3.1-405B-Instruct", 
-    "Meta-Llama-3.1-70B-Instruct":"Meta-Llama-3.1-70B-Instruct", 
-    "Meta-Llama-3.1-8B-Instruct":"Meta-Llama-3.1-8B-Instruct",
-    "Mistral-large":"Mistral-large", 
-    "Mistral-large-2407":"Mistral-large-2407", 
-    "Mistral-Nemo":"Mistral-Nemo", 
-    "Mistral-small":"Mistral-small",
-    "gpt-4o": "gpt-4o", 
-    "gpt-4o-mini": "gpt-4o-mini",
-    "Phi-3-medium-128k-instruct": "Phi-3-medium-128k-instruct", 
-    "Phi-3-medium-4k-instruct": "Phi-3-medium-4k-instruct", 
-    "Phi-3-mini-128k-instruct": "Phi-3-mini-128k-instruct", 
-    "Phi-3-mini-4k-instruct": "Phi-3-mini-4k-instruct", 
-    "Phi-3-small-128k-instruct": "Phi-3-small-128k-instruct", 
-    "Phi-3-small-8k-instruct": "Phi-3-small-8k-instruct",
+    "COHERE_CMDR": "cohere-command-r-plus",
+    "COHERE_EMBED": "cohere-embed-v3-multilingual",
+    "PHI3_MINI": "Phi-3-mini-128k-instruct",
+    "MISTRAL": "Mistral-large",
+    "MISTRAL_SMALL": "Mistral-small",
+    "GPT_4": "gpt-4",
 }
 
 @cl.on_chat_start
@@ -69,26 +55,10 @@ async def start():
                 label="LLM model",
                 description="The LLM used for generation",
                 items={
-                     "AI21 Labs": "AI21-Jamba-Instruct"
-                     "Cohere_CMD": "Cohere-command-r", 
-                     "Cohere_CMD+":"Cohere-command-r-plus"
-                     "Meta-Llama-3-70B-Instruct": "Meta-Llama-3-70B-Instruct", 
-                     "Meta-Llama-3-8B-Instruct": "Meta-Llama-3-8B-Instruct", 
-                     "Meta-Llama-3.1-405B-Instruct": "Meta-Llama-3.1-405B-Instruct", 
-                     "Meta-Llama-3.1-70B-Instruct":"Meta-Llama-3.1-70B-Instruct", 
-                     "Meta-Llama-3.1-8B-Instruct":"Meta-Llama-3.1-8B-Instruct",
-                     "Mistral-large":"Mistral-large", 
-                     "Mistral-large-2407":"Mistral-large-2407", 
-                     "Mistral-Nemo":"Mistral-Nemo", 
-                     "Mistral-small":"Mistral-small",
-                     "gpt-4o": "gpt-4o", 
-                     "gpt-4o-mini": "gpt-4o-mini",
-                     "Phi-3-medium-128k-instruct": "Phi-3-medium-128k-instruct", 
-                     "Phi-3-medium-4k-instruct": "Phi-3-medium-4k-instruct", 
-                     "Phi-3-mini-128k-instruct": "Phi-3-mini-128k-instruct", 
-                     "Phi-3-mini-4k-instruct": "Phi-3-mini-4k-instruct", 
-                     "Phi-3-small-128k-instruct": "Phi-3-small-128k-instruct", 
-                     "Phi-3-small-8k-instruct": "Phi-3-small-8k-instruct",
+                    "Cohere Command R+": "COHERE_CMDR",
+                    "Phi-3 Mini-128K-instruct": "PHI3_MINI",
+                    "Mistral-Large": "MISTRAL",
+                    "Mistral-Small": "MISTRAL_SMALL",
                 },
             ),
             Select(
@@ -96,8 +66,8 @@ async def start():
                 label="Router LLM",
                 description="The LLM model used for routing the requests.",
                 items={
-                    "Mistral-Small": "Mistral-small",
-                    "Phi-3-small-128k-instruct": "Phi-3-small-128k-instruct",
+                    "Mistral-Small": "MISTRAL_SMALL",
+                    "Phi-3 Mini 128K": "PHI3_MINI",
                 },
             ),
         ]
@@ -110,10 +80,10 @@ async def start():
             temperature=0.1,
             max_tokens=1024,
             streaming=True,
-            model_name=github_models_names.get("COHERE_CMD", "Cohere_CMD+"),
+            model_name=github_models_names.get("COHERE_CMDR", "cohere-command-r-plus"),
         )
         # Temporary fix for the model name issue: https://github.com/run-llama/llama_index/issues/15169#issuecomment-2299571873
-        Settings.llm._model_name = github_models_names.get("COHERE_CMD", "Cohere_CMD+")
+        Settings.llm._model_name = github_models_names.get("COHERE_CMDR", "cohere-command-r-plus")
         Settings.embed_model = AzureAIEmbeddingsModel(
             endpoint=github_inference_url,
             credential=github_token,
