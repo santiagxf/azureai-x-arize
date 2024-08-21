@@ -1,10 +1,10 @@
-# Azure AI studio x Phoenix
+# GitHub Model Catalog and Choosing the right LLM Model
 
-In this repository, you will learn how you can use models deployed in Azure AI studio to use the best model for the right job and consume the greatest innovation.
+In this repository, you will learn how you can use models deployed in GitHub Model Catalog to use the best model for the right job and consume the greatest innovation.
 
 ## Deploy
 
-We are using infrastructure as code to deploy the required models. The following script deploys different models using Serverless API endpoints. 
+We are using Github Models as Service to deploy the required models. The environment supports a dedicated codespace and you can interact with the following Serverless API endpoints. 
 
 * Cohere Embed V3 - Multilingual
 * Cohere Command R+
@@ -15,50 +15,43 @@ We are using infrastructure as code to deploy the required models. The following
 
 Notice that serverless API endpoints are currently supported on `eastus2` and `swidencentral`.
 
-```bash
-RESOURCE_GROUP="santiagxf-azurei-x-arize-dev"
-LOCATION="eastus2" 
+## Running the demo
 
-cd .cloud
+## Environment setup
 
-az group create --location $LOCATION --name $RESOURCE_GROUP
-az deployment group create --resource-group $RESOURCE_GROUP --template-file deploy.bicep
-```
+### GitHub Codespaces
 
-Once deployment is done, create an `.env` file with the endpoints URLs and keys like the following one:
+You can run this template virtually by using GitHub Codespaces. The button will open a web-based VS Code instance in your browser:
 
-__.env__
+1. Open the template (this may take several minutes):
 
-```bash
-export AZURE_AI_COHERE_CMDR_ENDPOINT_URL="https://models.inference.ai.azure.com"
-export AZURE_AI_COHERE_CMDR_ENDPOINT_KEY="awesome_key_or_token"
-export AZURE_AI_COHERE_CMDR_MODEL_NAME="cohere-command-r-plus"
-export AZURE_AI_MISTRAL_ENDPOINT_URL="https://models.inference.ai.azure.com"
-export AZURE_AI_MISTRAL_ENDPOINT_KEY="awesome_key_or_token"
-export AZURE_AI_MISTRAL_MODEL_NAME="Mistral-large"
-export AZURE_AI_MISTRAL_SMALL_ENDPOINT_URL="https://models.inference.ai.azure.com"
-export AZURE_AI_MISTRAL_SMALL_ENDPOINT_KEY="awesome_key_or_token"
-export AZURE_AI_MISTRAL_SMALL_MODEL_NAME="Mistral-small"
-export AZURE_AI_PHI3_MINI_ENDPOINT_URL="https://models.inference.ai.azure.com"
-export AZURE_AI_PHI3_MINI_ENDPOINT_KEY="awesome_key_or_token"
-export AZURE_AI_PHI3_MINI_MODEL_NAME="Phi-3-mini-128k-instruct"
-export AZURE_AI_COHERE_EMBED_ENDPOINT_URL="https://models.inference.ai.azure.com"
-export AZURE_AI_COHERE_EMBED_ENDPOINT_KEY="awesome_key_or_token"
-export AZURE_AI_COHERE_EMBED_MODEL_NAME="cohere-embed-v3-multilingual"
-export AZURE_OPENAI_GPT_4_ENDPOINT_URL="https://models.inference.ai.azure.com"
-export AZURE_OPENAI_GPT_4_ENDPOINT_KEY="awesome_key_or_token"
-export AZURE_OPENAI_GPT_4_MODEL_NAME="gpt-4"
-```
+    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/leestott/azureai-x-arize)
 
-## Run
+2. Open a terminal window
 
-Use `.devcontainer` to spin off a GitHub codespace to run the examples. This will install all the packages required. This example currently build the packages `llama-index-embeddings-azure-inference` and `llama-index-llms-azure-inference` from source in LlamaIndex.
+### VS Code Dev Containers
+
+⚠️ This option will only work if your Docker Desktop is allocated at least 16 GB of RAM. If you have less than 16 GB of RAM, you can try the [GitHub Codespaces option](#github-codespaces) or [set it up locally](#local-environment).
+
+A related option is VS Code Dev Containers, which will open the project in your local VS Code using the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
+
+1. Start Docker Desktop (install it if not already installed)
+2. Open the project:
+
+    [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/leestott/azureai-x-arize)
+
+3. In the VS Code window that opens, once the project files show up (this may take several minutes), open a terminal window.
+4. Continue with the [deployment steps](#deployment)
+
+
+This example currently build the packages `llama-index-embeddings-azure-inference` and `llama-index-llms-azure-inference` from source in LlamaIndex.
 
 This repository has the following examples:
 
 * [llama_index_selector.ipynb](llama_index_selector.ipynb): It explains how multiple LLMs can be use for data generation, evaluation, and for specific tasks like tool selection. It shows how to instrument your code using Phoenix.
 * [src/app.py](src/app.py): A chainlit project that allows you to play with index we built in the previous example. Use the notebook to learn about the technique and the approach. You can use this playground for testing the idea.
 
+## Running the Web App Demo 
 To use chainlit, run the following command:
 
 ```bash
