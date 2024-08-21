@@ -43,6 +43,7 @@ github_models_names = {
     "GPT_4": "gpt-4",
 }
 
+
 @cl.on_chat_start
 async def start():
     global vector_index
@@ -83,11 +84,15 @@ async def start():
             model_name=github_models_names.get("COHERE_CMDR", "cohere-command-r-plus"),
         )
         # Temporary fix for the model name issue: https://github.com/run-llama/llama_index/issues/15169#issuecomment-2299571873
-        Settings.llm._model_name = github_models_names.get("COHERE_CMDR", "cohere-command-r-plus")
+        Settings.llm._model_name = github_models_names.get(
+            "COHERE_CMDR", "cohere-command-r-plus"
+        )
         Settings.embed_model = AzureAIEmbeddingsModel(
             endpoint=github_inference_url,
             credential=github_token,
-            model_name=github_models_names.get("COHERE_EMBED", "cohere-embed-v3-multilingual"),
+            model_name=github_models_names.get(
+                "COHERE_EMBED", "cohere-embed-v3-multilingual"
+            ),
         )
         Settings.callback_manager = CallbackManager([cl.LlamaIndexCallbackHandler()])
         Settings.context_window = 4096
