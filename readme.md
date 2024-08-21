@@ -19,7 +19,8 @@ Available in the GitHub Models service:
 **Meta:** 
 - Meta-Llama-3-70B-Instruct
 - Meta-Llama-3-8B-Instruct
-- Meta-Llama-3.1-405B-Instruct - Meta-Llama-3.1-70B-Instruct 
+- Meta-Llama-3.1-405B-Instruct
+- Meta-Llama-3.1-70B-Instruct 
 - Meta-Llama-3.1-8B-Instruct
 
 **Mistral AI:** 
