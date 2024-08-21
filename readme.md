@@ -6,13 +6,39 @@ In this repository, you will learn how you can use models deployed in [GitHub Ma
 
 We are using Github Models as Service to deploy the required models. The environment supports a dedicated codespace and you can interact with the following Serverless API endpoints. 
 
-* Cohere Embed V3 - Multilingual
-* Cohere Command R+
-* Mistral-Large
-* Mistral-Small
-* Phi-3-Mini 128K
-* OpenAI GPT-4
+The following models are
+Available in the GitHub Models service:
 
+**AI21 Labs:** 
+- AI21-Jamba-Instruct
+
+**Cohere:** 
+- Cohere-command-r
+- Cohere-command-r-plus
+
+**Meta:** 
+- Meta-Llama-3-70B-Instruct
+- Meta-Llama-3-8B-Instruct
+- Meta-Llama-3.1-405B-Instruct - Meta-Llama-3.1-70B-Instruct 
+- Meta-Llama-3.1-8B-Instruct
+
+**Mistral AI:** 
+- Mistral-large 
+- Mistral-large-2407 
+- Mistral-Nemo
+- Mistral-small
+
+**Azure OpenAI:** 
+- gpt-4o
+- gpt-4o-mini
+
+**Microsoft** 
+- Phi-3-medium-128k-instruct 
+- Phi-3-medium-4k-instruct 
+- Phi-3-mini-128k-instruct 
+- Phi-3-mini-4k-instruct
+- Phi-3-small-128k-instruct
+- Phi-3-small-8k-instruct
 
 ## Environment setup
 
