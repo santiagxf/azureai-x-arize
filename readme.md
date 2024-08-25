@@ -22,7 +22,7 @@ LOCATION="eastus2"
 cd .cloud
 
 az group create --location $LOCATION --name $RESOURCE_GROUP
-az deployment group create --resource-group $RESOURCE_GROUP --template-file deploy.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file deploy.json
 ```
 
 Once deployment is done, create an `.env` file with the endpoints URLs and keys like the following one:
