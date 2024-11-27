@@ -1,19 +1,21 @@
-# Azure AI studio x Phoenix
+# Azure AI Foundry x Phoenix
 
-In this repository, you will learn how you can use models deployed in Azure AI studio to use the best model for the right job and consume the greates innovation.
+In this repository, you will learn how you can use models deployed in Azure AI Foundry to use the best model for the right job and consume the greatest innovation.
 
 ## Deploy
 
-We are using infrastructure as code to deploy the required models. The following script deploys different models using Serverless API endpoints. 
+We are using infrastructure as code to deploy the required models. The following script deploys different models using [Azure AI model inference](https://aka.ms/aiservices/inference) in Azure AI Foundry. 
 
 * Cohere Embed V3 - Multilingual
 * Cohere Command R+
 * Mistral-Large
 * Mistral-Small
 * Phi-3-Mini 128K
-* OpenAI GPT-4
+* OpenAI GPT-4o
 
-Notice that serverless API endpoints are currently supported on `eastus2` and `swidencentral`.
+> [!TIP]
+> Want to try all the models in Models as a Service? Try to deploy the model list included in `models-all.json` which will deploy all the models using bicep. For that open the file `deploy.bicep` and replace `models.json` for `models-all.json`.
+
 
 ```bash
 RESOURCE_GROUP="santiagxf-azurei-x-arize-dev"
@@ -30,17 +32,13 @@ Once deployment is done, create an `.env` file with the endpoints URLs and keys 
 __.env__
 
 ```bash
-export AZURE_AI_COHERE_CMDR_ENDPOINT_URL="https://my_awesome_endpoint-serverless.eastus2.inference.ai.azure.com"
-export AZURE_AI_COHERE_CMDR_ENDPOINT_KEY="my_awesome_key"
-export AZURE_AI_MISTRAL_ENDPOINT_URL="https://my_awesome_endpoint-serverless.eastus2.inference.ai.azure.com"
-export AZURE_AI_MISTRAL_ENDPOINT_KEY="my_awesome_key" 
-export AZURE_AI_MISTRAL_SMALL_ENDPOINT_URL="https://my_awesome_endpoint-serverless.eastus2.inference.ai.azure.com"
-export AZURE_AI_MISTRAL_SMALL_ENDPOINT_KEY="my_awesome_key" 
-export AZURE_AI_PHI3_MINI_ENDPOINT_URL="https://my_awesome_endpoint-serverless.eastus2.inference.ai.azure.com"
-export AZURE_AI_PHI3_MINI_ENDPOINT_KEY="my_awesome_key" 
-export AZURE_AI_COHERE_EMBED_ENDPOINT_URL="https://my_awesome_endpoint-serverless.eastus2.inference.ai.azure.com"
-export AZURE_AI_COHERE_EMBED_ENDPOINT_KEY="my_awesome_key" 
+export AZURE_AI_ENDPOINT="https://my-azure-ai-resource.services.ai.azure.com/models"
+export AZURE_AI_CREDENTIAL="my_awesome_key"
+export AZURE_OPENAI_ENDPOINT="https://my-azure-ai-resource.openai.azure.com"
 ```
+
+> [!TIP]
+> You can get this information very quickly by going to https://ai.azure.com
 
 ## Run
 

@@ -1,0 +1,37 @@
+[
+  {
+    "provider": "Cohere",
+    "name": "Cohere-command-r-plus-08-2024",
+    "version": "1"
+  },
+  {
+    "provider": "Cohere",
+    "name": "Cohere-embed-v3-multilingual",
+    "version": "1"
+  },
+  {
+    "provider": "Microsoft",
+    "name": "Phi-3-mini-128k-instruct",
+    "version": "11"
+  },
+  {
+    "provider": "Microsoft",
+    "name": "Phi-3.5-mini-instruct",
+    "version": "2"
+  },
+  {
+    "provider": "Mistral AI",
+    "name": "Mistral-large",
+    "version": "1"
+  },
+  {
+    "provider": "Mistral AI",
+    "name": "Mistral-small",
+    "version": "1"
+  },
+  {
+    "provider": "OpenAI",
+    "name": "gpt-4o",
+    "version": "2024-08-06"
+  }
+]
