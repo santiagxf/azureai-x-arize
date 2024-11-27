@@ -89,7 +89,7 @@ async def start():
     cl.user_session.set("settings", cl_settings)
 
     await cl.Message(
-        author="Assistant", content="Hello! I'm an AI assistant. I will try to answer questions about the life of Paul Graham. For specific questions I will use a vector index, but for more comprehensive questions I will use a summary index. Change the model I use to select the tool using the settings button."
+        author="Assistant", content="Hello! I'm an AI assistant. I will try to answer questions about the life of Paul Graham. For specific questions I will use a vector index, but for more comprehensive questions I will use a summary index. I use a LLM to analyze you queston and decide which strategy I should use based on the complexity of the query. Use the settings section to change the model I use to decide."
     ).send()
 
 def build_simple_query_engine():
