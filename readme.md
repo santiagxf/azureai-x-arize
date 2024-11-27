@@ -21,10 +21,10 @@ We are using infrastructure as code to deploy the required models. The following
 RESOURCE_GROUP="santiagxf-azurei-x-arize-dev"
 LOCATION="eastus2" 
 
-cd .cloud
+cd infra
 
 az group create --location $LOCATION --name $RESOURCE_GROUP
-az deployment group create --resource-group $RESOURCE_GROUP --template-file deploy.json
+az deployment group create --resource-group $RESOURCE_GROUP --template-file deploy.bicep
 ```
 
 Once deployment is done, create an `.env` file with the endpoints URLs and keys like the following one:
@@ -49,7 +49,7 @@ This repository has the following examples:
 * [llama_index_selector.ipynb](llama_index_selector.ipynb): It explains how multiple LLMs can be use for data generation, evaluation, and for specific tasks like tool selection. It shows how to instrument your code using Phoenix.
 * [src/app.py](src/app.py): A chainlit project that allows you to play with index we built in the previous example. Use the notebook to learn about the technique and the approach. You can use this playground for testing the idea.
 
-To use chainlit, run the following command:
+To use `chainlit`, run the following command:
 
 ```bash
 source .env
