@@ -45,10 +45,10 @@ async def start():
                 label="LLM model",
                 description="The LLM used for generation",
                 items={
-                    "Cohere Command R+": "COHERE_CMDR",
-                    "Phi-3 Mini-128K-instruct": "PHI3_MINI",
-                    "Mistral-Large": "MISTRAL",
-                    "Mistral-Small": "MISTRAL_SMALL",
+                    "Cohere Command R+": "Cohere-command-r-plus-08-2024",
+                    "Phi-3 Mini-128K-instruct": "Phi-3-mini-128k-instruct",
+                    "Mistral-Large": "Mistral-large",
+                    "Mistral-Small": "Mistral-small",
                 },
             ),
             Select(
@@ -56,20 +56,22 @@ async def start():
                 label="Router LLM",
                 description="The LLM model used for routing the requests.",
                 items={
-                    "Mistral-Small": "MISTRAL_SMALL",
-                    "Phi-3 Mini 128K": "PHI3_MINI",
+                    "Mistral-Small": "Mistral-small",
+                    "Phi-3 Mini 128K": "Phi-3-mini-128k-instruct",
                 },
             ),
         ]).send()
 
     Settings.llm = AzureAICompletionsModel(
-        endpoint=os.getenv("AZURE_AI_COHERE_CMDR_ENDPOINT_URL"),
-        credential=os.getenv("AZURE_AI_COHERE_CMDR_ENDPOINT_KEY"),
+        endpoint=os.getenv("AZURE_AI_ENDPOINT"),
+        credential=os.getenv("AZURE_AI_CREDENTIAL"),
+        model_name="Cohere-command-r-plus-08-2024",
         temperature=0.1, max_tokens=1024, streaming=True
     )
     Settings.embed_model = AzureAIEmbeddingsModel(
-        endpoint=os.getenv("AZURE_AI_COHERE_EMBED_ENDPOINT_URL"),
-        credential=os.getenv("AZURE_AI_COHERE_EMBED_ENDPOINT_KEY"),
+        endpoint=os.getenv("AZURE_AI_ENDPOINT"),
+        credential=os.getenv("AZURE_AI_CREDENTIAL"),
+        model_name="Cohere-embed-v3-multilingual",
     )
     Settings.callback_manager = CallbackManager([cl.LlamaIndexCallbackHandler()])
     Settings.context_window = 4096
@@ -178,8 +180,9 @@ async def setup_agent(settings):
     if settings.get("router_llm", None):
         router_llm_environ = settings["router_llm"]
         router_llm = AzureAICompletionsModel(
-            endpoint=os.getenv(f"AZURE_AI_{router_llm_environ}_ENDPOINT_URL"),
-            credential=os.getenv(f"AZURE_AI_{router_llm_environ}_ENDPOINT_KEY"),
+            endpoint=os.getenv("AZURE_AI_ENDPOINT"),
+            credential=os.getenv("AZURE_AI_CREDENTIAL"),
+            model_name=router_llm_environ,
             temperature=0.1, max_tokens=1024, streaming=True
         )
         query_engine = build_query_engine_with_router(router_llm)
