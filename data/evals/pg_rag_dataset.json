@@ -3,7 +3,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -15,7 +15,7 @@
         {
             "query": "In the context of the author's early programming experiences, what were the limitations of the IBM 1401 mainframe computer that hindered his ability to write meaningful programs?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -27,7 +27,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -39,7 +39,7 @@
         {
             "query": "What were the two main influences that led the author to switch to AI in the mid-1980s, as mentioned in the text?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -51,7 +51,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -63,7 +63,7 @@
         {
             "query": "What programming language did the author decide to focus on and write a book about, despite its association with AI and his initial plans being broken?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -75,7 +75,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -87,7 +87,7 @@
         {
             "query": "What was the primary reason Paul decided to choose 'applications of continuations' as the topic for his dissertation, and what topic does he wish he had chosen in retrospect?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -99,7 +99,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -111,7 +111,7 @@
         {
             "query": "In the context of the painting techniques discussed in the text, how does the process of painting still lives differ from painting people? What unique challenges and opportunities does each subject present?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -123,7 +123,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -135,7 +135,7 @@
         {
             "query": "In the context of Paul Graham's experience at Interleaf, what programming language was their scripting language a dialect of, and what significant insight did Graham gain from this experience?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -147,7 +147,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -159,7 +159,7 @@
         {
             "query": "In the context of the text, what was the author's primary motivation for moving to New York, and how did this relate to his identity as an artist?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -171,7 +171,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -183,7 +183,7 @@
         {
             "query": "What was the initial startup idea of the author and Robert, and why did it fail to gain traction among art galleries?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -195,7 +195,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -207,7 +207,7 @@
         {
             "query": "What was the main motivation behind the creation of Viaweb, and how did the founders secure initial funding for the company?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -219,7 +219,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -231,7 +231,7 @@
         {
             "query": "What was the pricing strategy of Viaweb, and how did it compare to its competitors in the ecommerce software market of the 90s?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -243,7 +243,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -255,7 +255,7 @@
         {
             "query": "What was the primary reason Paul Graham sold his company, Viaweb, to Yahoo, and how did he feel about this decision?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -267,7 +267,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -279,7 +279,7 @@
         {
             "query": "What was the main reason Paul decided to move back to New York, and what significant change did he find in his life upon his return?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -291,7 +291,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -303,7 +303,7 @@
         {
             "query": "What was the turning point in the author's career and why was it significant to him?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -315,7 +315,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -327,7 +327,7 @@
         {
             "query": "In the context of the author's life, what significant event happened in October 2003 at his house, and who was one of the guests that he ended up liking a lot?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -339,7 +339,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -351,7 +351,7 @@
         {
             "query": "What was the initial inspiration behind the creation of Y Combinator, and how did the founders plan to fund it?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -363,7 +363,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -375,7 +375,7 @@
         {
             "query": "What was the initial deal offered by the Summer Founders Program to startups, and how was this deal determined?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -387,7 +387,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -399,7 +399,7 @@
         {
             "query": "What was the original purpose and name of Hacker News, and why was it changed?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -411,7 +411,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -423,7 +423,7 @@
         {
             "query": "What significant personal event in 2012 influenced the author's decision to hand over the presidency of YC to someone else?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -435,7 +435,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -447,7 +447,7 @@
         {
             "query": "What was the original purpose of Lisp when it was invented by John McCarthy, and how did it evolve into a programming language in the ordinary sense?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -459,7 +459,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -471,7 +471,7 @@
         {
             "query": "In the context of the author's life, what significant event happened in the fall of 2019 and how does it relate to John McCarthy's original Lisp?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -483,7 +483,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -495,7 +495,7 @@
         {
             "query": "In the context of Viaweb, explain the difference between the code editor used for defining page styles and an app editor. Why didn't the code editor in Viaweb qualify as an app editor?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -507,7 +507,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -519,7 +519,7 @@
         {
             "query": "In the context of running a forum and writing essays, what assumption leads to a disastrous combination for the author, according to the text?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -531,7 +531,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -543,7 +543,7 @@
         {
             "query": "In the context of the author's early programming experiences, what were the limitations of the IBM 1401 mainframe computer that hindered his ability to write meaningful programs?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -555,7 +555,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -567,7 +567,7 @@
         {
             "query": "What were the two main influences that led the author to switch to AI in the mid-1980s, as mentioned in the text?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -579,7 +579,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -591,7 +591,7 @@
         {
             "query": "What programming language did the author decide to focus on and write a book about, despite its association with AI and his initial plans being broken?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -603,7 +603,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -615,7 +615,7 @@
         {
             "query": "What was the primary motivation behind the author's decision to write a dissertation on applications of continuations within a short span of time?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -627,7 +627,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -639,7 +639,7 @@
         {
             "query": "In the context of the painting techniques discussed in the text, how does the process of painting still lives differ from painting people? What unique challenges and opportunities does each subject present?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -651,7 +651,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -663,7 +663,7 @@
         {
             "query": "In the context of Paul Graham's experience at Interleaf, what programming language was their scripting language a dialect of, and what significant insight did Graham gain from this experience?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -675,7 +675,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -687,7 +687,7 @@
         {
             "query": "In the context of the text, what was the author's primary motivation for moving to New York, and how did this relate to his identity as an artist?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -699,7 +699,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -711,7 +711,7 @@
         {
             "query": "What was the initial startup idea of the author and Robert, and why did it fail to gain traction among art galleries?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -723,7 +723,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -735,7 +735,7 @@
         {
             "query": "What was the main motivation behind the creation of Viaweb, and how did the founders secure initial funding for the company?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -747,7 +747,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -759,7 +759,7 @@
         {
             "query": "What was the pricing strategy of Viaweb, and how did it compare to its competitors in the ecommerce software market of the 90s?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -771,7 +771,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -783,7 +783,7 @@
         {
             "query": "What was the primary reason Paul Graham sold his company, Viaweb, to Yahoo, and how did he feel about this decision?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -795,7 +795,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -807,7 +807,7 @@
         {
             "query": "What was the main reason Paul decided to move back to New York, and what significant change did he find in his life upon his return?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -819,7 +819,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -831,7 +831,7 @@
         {
             "query": "What was the turning point in the author's career and why was it significant to him?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -843,7 +843,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -855,7 +855,7 @@
         {
             "query": "In the context of the author's life, what significant event happened in October 2003 at his house, and who was one of the guests that he ended up liking a lot?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -867,7 +867,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -879,7 +879,7 @@
         {
             "query": "What was the initial inspiration behind the creation of Y Combinator, and how did the founders plan to fund it?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -891,7 +891,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -903,7 +903,7 @@
         {
             "query": "What was the initial deal offered by the Summer Founders Program to startups, and how was this deal determined?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -915,7 +915,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -927,7 +927,7 @@
         {
             "query": "What was the original purpose and name of Hacker News, and why was it changed?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -939,7 +939,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -951,7 +951,7 @@
         {
             "query": "What significant personal event in 2012 led to the author's decision to hand over the presidency of YC to someone else?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -963,7 +963,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -975,7 +975,7 @@
         {
             "query": "What was the original purpose of Lisp when it was invented by John McCarthy, and how did it evolve into a programming language in the ordinary sense?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -987,7 +987,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -999,7 +999,7 @@
         {
             "query": "In the context of the author's life, what significant event happened in the fall of 2019 and how does it relate to John McCarthy's original Lisp?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1011,7 +1011,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1023,7 +1023,7 @@
         {
             "query": "In the context of Viaweb, what was the purpose of the code editor and how did it differ from an app editor? The code editor in Viaweb allowed users to define their own page styles by editing Lisp expressions without their knowledge. However, it was not an app editor because the code ran when the merchants' sites were generated, not when shoppers visited them.",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1035,7 +1035,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1047,7 +1047,7 @@
         {
             "query": "In the context of running a forum and writing essays, what assumption leads to a disastrous combination for the author, according to the text?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1059,7 +1059,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1071,7 +1071,7 @@
         {
             "query": "In the context of the author's early programming experiences, what were the limitations of the IBM 1401 mainframe computer that hindered his ability to write meaningful programs?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1083,7 +1083,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1095,7 +1095,7 @@
         {
             "query": "What were the two main influences that led the author to switch to AI in the mid-1980s, as mentioned in the text?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1107,7 +1107,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1119,7 +1119,7 @@
         {
             "query": "What programming language did the author decide to focus on and write a book about, despite its association with AI and his initial plans being broken?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1131,7 +1131,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1143,7 +1143,7 @@
         {
             "query": "What was the primary motivation behind the author's decision to write a dissertation on applications of continuations within a short span of time?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1155,7 +1155,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1167,7 +1167,7 @@
         {
             "query": "In the context of the painting techniques discussed in the text, how does the process of painting still lives differ from painting people? What unique challenges and opportunities does each subject present?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1179,7 +1179,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1191,7 +1191,7 @@
         {
             "query": "In the context of Paul Graham's experience at Interleaf, what programming language was their scripting language a dialect of, and what significant insight did Graham gain from this experience?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1203,7 +1203,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1215,7 +1215,7 @@
         {
             "query": "In the context of the text, what was the author's primary motivation for moving to New York, and how did this relate to his identity as an artist?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1227,7 +1227,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1239,7 +1239,7 @@
         {
             "query": "What was the initial startup idea of the author and Robert, and why did it fail to gain traction among art galleries?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1251,7 +1251,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1263,7 +1263,7 @@
         {
             "query": "What was the main motivation behind the creation of Viaweb, and how did the founders secure initial funding for the company?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1275,7 +1275,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1287,7 +1287,7 @@
         {
             "query": "What was the pricing strategy of Viaweb, and how did it compare to its competitors in the ecommerce software market of the 90s?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1299,7 +1299,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1311,7 +1311,7 @@
         {
             "query": "What was the primary reason Paul Graham sold his company, Viaweb, to Yahoo, and how did he feel about this decision?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1323,7 +1323,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1335,7 +1335,7 @@
         {
             "query": "What was the main reason Paul decided to move back to New York, and what significant change did he find in his life upon his return?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1347,7 +1347,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1359,7 +1359,7 @@
         {
             "query": "What was the turning point in the author's career and why was it significant to him?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1371,7 +1371,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1383,7 +1383,7 @@
         {
             "query": "In the context of the author's life, what significant event happened in October 2003 at his house, and who was one of the guests that he ended up liking a lot?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1395,7 +1395,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1407,7 +1407,7 @@
         {
             "query": "What was the initial inspiration behind the creation of Y Combinator, and how did the founders plan to fund it?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1419,7 +1419,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1431,7 +1431,7 @@
         {
             "query": "What was the initial deal offered by the Summer Founders Program to startups, and how was this deal determined?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1443,7 +1443,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1455,7 +1455,7 @@
         {
             "query": "What was the original purpose and name of Hacker News, and why was it changed?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1467,7 +1467,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1479,7 +1479,7 @@
         {
             "query": "What significant personal event in 2012 led to the author's decision to hand over the presidency of YC to someone else?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1491,7 +1491,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1503,7 +1503,7 @@
         {
             "query": "What was the original purpose of Lisp as conceived by John McCarthy, and how did it evolve into a programming language in the ordinary sense?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1515,7 +1515,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1527,7 +1527,7 @@
         {
             "query": "In the context of the author's life, discuss the significance of the summer of 2016 and the decision made during this period. How did this decision impact the author's work on \"Bel\"?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1539,7 +1539,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1551,7 +1551,7 @@
         {
             "query": "In the context of Viaweb, what was the purpose of the code editor and how did it differ from an app editor? The code editor in Viaweb allowed users to define their own page styles by editing Lisp expressions without their knowledge. However, it was not an app editor because the code ran when the merchants' sites were generated, not when shoppers visited them.",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1563,7 +1563,7 @@
         {
             "query": "Question 1:",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
@@ -1575,7 +1575,7 @@
         {
             "query": "In the context of running a forum and writing essays, what assumption leads to a disastrous combination for the author, according to the text?",
             "query_by": {
-                "model_name": "mistral-large",
+                "model_name": "mistral-large-2407",
                 "type": "ai"
             },
             "reference_contexts": [
