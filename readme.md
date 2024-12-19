@@ -32,8 +32,8 @@ Once deployment is done, create an `.env` file with the endpoints URLs and keys 
 __.env__
 
 ```bash
-export AZURE_AI_ENDPOINT="https://my-azure-ai-resource.services.ai.azure.com/models"
-export AZURE_AI_CREDENTIAL="my_awesome_key"
+export AZURE_INFERENCE_ENDPOINT="https://my-azure-ai-resource.services.ai.azure.com/models"
+export AZURE_INFERENCE_CREDENTIAL="my_awesome_key"
 export AZURE_OPENAI_ENDPOINT="https://my-azure-ai-resource.openai.azure.com"
 ```
 

@@ -1,4 +1,5 @@
 import os
+from typing import Tuple
 import chainlit as cl
 from chainlit.input_widget import Select, Slider
 
@@ -33,66 +34,18 @@ except:
     pass
 
 
-@cl.on_chat_start
-async def start():
-    global vector_index
-    global summary_index
+def rebuild_indexes(data_path: str) -> Tuple[VectorStoreIndex, SummaryIndex]:
+    documents = SimpleDirectoryReader(data_path).load_data(show_progress=True)
+    
+    vector_index = VectorStoreIndex.from_documents(documents)
+    vector_index.set_index_id("vector_index")
+    vector_index.storage_context.persist()
+    summary_index = SummaryIndex.from_documents(documents)
+    summary_index.set_index_id("summary_index")
+    summary_index.storage_context.persist()
 
-    cl_settings = await cl.ChatSettings(
-        [
-            Select(
-                id="llm",
-                label="LLM model",
-                description="The LLM used for generation",
-                items={
-                    "Cohere Command R+": "Cohere-command-r-plus-08-2024",
-                    "Phi-3 Mini-128K-instruct": "Phi-3-mini-128k-instruct",
-                    "Mistral-Large": "Mistral-large",
-                    "Mistral-Small": "Mistral-small",
-                },
-            ),
-            Select(
-                id="router_llm",
-                label="Router LLM",
-                description="The LLM model used for routing the requests.",
-                items={
-                    "Mistral-Small": "Mistral-small",
-                    "Phi-3 Mini 128K": "Phi-3-mini-128k-instruct",
-                },
-            ),
-        ]).send()
+    return vector_index, summary_index
 
-    Settings.llm = AzureAICompletionsModel(
-        endpoint=os.getenv("AZURE_AI_ENDPOINT"),
-        credential=os.getenv("AZURE_AI_CREDENTIAL"),
-        model_name="Cohere-command-r-plus-08-2024",
-        temperature=0.1, max_tokens=1024, streaming=True
-    )
-    Settings.embed_model = AzureAIEmbeddingsModel(
-        endpoint=os.getenv("AZURE_AI_ENDPOINT"),
-        credential=os.getenv("AZURE_AI_CREDENTIAL"),
-        model_name="Cohere-embed-v3-multilingual",
-    )
-    Settings.callback_manager = CallbackManager([cl.LlamaIndexCallbackHandler()])
-    Settings.context_window = 4096
-
-    if not vector_index:
-        documents = SimpleDirectoryReader("../data/paul_graham/").load_data(show_progress=True)
-        
-        vector_index = VectorStoreIndex.from_documents(documents)
-        vector_index.set_index_id("vector_index")
-        vector_index.storage_context.persist()
-        summary_index = SummaryIndex.from_documents(documents)
-        summary_index.set_index_id("summary_index")
-        summary_index.storage_context.persist()
-
-    query_engine = build_query_engine_with_router()
-    cl.user_session.set("query_engine", query_engine)
-    cl.user_session.set("settings", cl_settings)
-
-    await cl.Message(
-        author="Assistant", content="Hello! I'm an AI assistant. I will try to answer questions about the life of Paul Graham. For specific questions I will use a vector index, but for more comprehensive questions I will use a summary index. I use a LLM to analyze you queston and decide which strategy I should use based on the complexity of the query. Use the settings section to change the model I use to decide."
-    ).send()
 
 def build_simple_query_engine():
     global vector_index
@@ -133,6 +86,71 @@ def build_summary_query_engine():
     )
 
     return query_engine
+
+@cl.on_chat_start
+async def start():
+    global vector_index
+    global summary_index
+
+    cl_settings = await cl.ChatSettings(
+        [
+            Select(
+                id="llm",
+                label="LLM model",
+                description="The LLM used for generation",
+                items={
+                    "Cohere Command R+": "Cohere-command-r-plus-08-2024",
+                    "Phi-3.5-Mini-instruct": "Phi-3.5-mini-instruct",
+                    "Mistral-Large": "Mistral-large-2407",
+                    "Mistral-Small": "Mistral-small",
+                },
+            ),
+            Select(
+                id="router_llm",
+                label="Router LLM",
+                description="The LLM model used for routing the requests.",
+                items={
+                    "GPT-4o-mini": "gpt-4o-mini",
+                    "Mistral-Small": "Mistral-small",
+                    "Phi-3.5-Mini-instruct": "Phi-3.5-mini-instruct",
+                },
+            ),
+            Select(
+                id="embedding_model",
+                label="Embedding model",
+                description="The model used for generating embeddings.",
+                items={
+                    "Cohere Embed V3 Multilingual": "Cohere-embed-v3-multilingual",
+                    "Cohere Embed V3 English": "Cohere-embed-v3-english",
+                    "text-embedding-3-large": "text-embedding-3-large",
+                },
+            )
+        ]).send()
+
+    Settings.llm = AzureAICompletionsModel(
+        endpoint=os.getenv("AZURE_INFERENCE_ENDPOINT"),
+        credential=os.getenv("AZURE_INFERENCE_CREDENTIAL"),
+        model_name="Cohere-command-r-plus-08-2024",
+        temperature=0.1, max_tokens=1024, streaming=True
+    )
+    Settings.embed_model = AzureAIEmbeddingsModel(
+        endpoint=os.getenv("AZURE_INFERENCE_ENDPOINT"),
+        credential=os.getenv("AZURE_INFERENCE_CREDENTIAL"),
+        model_name="Cohere-embed-v3-multilingual",
+    )
+    Settings.callback_manager = CallbackManager([cl.LlamaIndexCallbackHandler()])
+    Settings.context_window = 4096
+
+    if not vector_index:
+        vector_index, summary_index = rebuild_indexes("../data/paul_graham/")
+
+    query_engine = build_query_engine_with_router()
+    cl.user_session.set("query_engine", query_engine)
+    cl.user_session.set("settings", cl_settings)
+
+    await cl.Message(
+        author="Assistant", content="Hello! I'm an AI assistant. I will try to answer questions about the life of Paul Graham. For specific questions I will use a vector index, but for more comprehensive questions I will use a summary index. I use a LLM to analyze you queston and decide which strategy I should use based on the complexity of the query. Use the settings section to change the model I use to decide."
+    ).send()
 
 def build_query_engine_with_router(router_llm=None):
     summary_tool = QueryEngineTool.from_defaults(
@@ -180,8 +198,8 @@ async def setup_agent(settings):
     if settings.get("router_llm", None):
         router_llm_environ = settings["router_llm"]
         router_llm = AzureAICompletionsModel(
-            endpoint=os.getenv("AZURE_AI_ENDPOINT"),
-            credential=os.getenv("AZURE_AI_CREDENTIAL"),
+            endpoint=os.getenv("AZURE_INFERENCE_ENDPOINT"),
+            credential=os.getenv("AZURE_INFERENCE_CREDENTIAL"),
             model_name=router_llm_environ,
             temperature=0.1, max_tokens=1024, streaming=True
         )
